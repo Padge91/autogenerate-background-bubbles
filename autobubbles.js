@@ -1,5 +1,11 @@
+var linkElementId = "linkhere";
+var svgElementId = "svgBackground";
+var circlesColor = "#fff";
+var backgroundColor = "#304049";
+var maxWidth = 1440;
+
 function img_and_link() {
-  $('#this').append(
+  $('#'+linkElementId).append(
     $('<a>')
       .attr('href-lang', 'image/svg+xml')
       .attr('href', 'data:image/svg+xml;utf8,' +  unescape($('svg')[0].outerHTML).split("#").join("%23"))
@@ -93,7 +99,7 @@ function ContainerArea(containerRadius) {
   }
 }
 
-var container = new ContainerArea(1440);
+var container = new ContainerArea(maxWidth);
 container.createChildren(555, 25, 90);
-container.render(document.getElementById("svgBackground"), "#304049", "#fff");
+container.render(document.getElementById(svgElementId), backgroundColor, circlesColor);
 img_and_link();
